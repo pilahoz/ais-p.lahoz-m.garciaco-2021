@@ -1,4 +1,4 @@
-package es.urjc.code.daw.library.e2e.rest; //prueba
+package es.urjc.code.daw.library.e2e.rest;
 
 import static io.restassured.RestAssured.given;
 import static io.restassured.RestAssured.when;
