@@ -3,11 +3,11 @@ name: primer workflow
 on: 
   push:
     branches:
-      - feature
+      [feature]
   
   pull_request:
     branches:
-      - develop
+      [develop]
 
 jobs:
   build:
