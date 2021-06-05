@@ -23,10 +23,12 @@ jobs:
       uses: actions/upload-artifact@v2
     - name: Build native with Maven
       run: mvn -B package -DskipTests
+    - name: 'Upload Artifact'
+      uses: actions/upload-artifact@v2
       with:
-        name: target
-        path: target
-        retention-days: 1
+          name: target
+          path: target/*.jar
+          retention-days: 1
     - name: ejecutar test unitario
       run: mvn -B '-Dtest = es.urjc.code.daw.library.unitary.*Test' test
     - name: ejecutar api rest test
