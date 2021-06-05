@@ -7,7 +7,6 @@ on:
 
 jobs:
   build:
-
     runs-on: windows-2019
     steps:
     - uses: actions/checkout@v2
@@ -15,8 +14,6 @@ jobs:
       uses: actions/setup-java@v1
       with:
         java-version: '11'
-    - name: Build native with Maven
-      run: mvn -B package
     - name: ejecutar test unitario
       run: mvn -B '-Dtest = es.urjc.code.daw.library.unitary.*Test' test
     - name: ejecutar api rest test
