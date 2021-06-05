@@ -24,4 +24,4 @@ jobs:
     - name: ejecutar test unitario
       run: src\test\java\es\urjc\code\daw\library\unitary\BookServiceUnitaryTest.java
     - name: ejecutar api rest test
-      run: C:\Users\pilah\ais-p.lahoz-m.garciaco-2021\src\test\java\es\urjc\code\daw\library\e2e\rest\RestTest.java
+      run: src\test\java\es\urjc\code\daw\library\e2e\rest\RestTest.java
