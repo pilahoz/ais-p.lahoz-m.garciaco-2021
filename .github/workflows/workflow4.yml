@@ -16,7 +16,7 @@ jobs:
       with:
         java-version: '11'
     - name: Build native with Maven
-      run: mvn -B package -DskipTests
+      run: mvn -B package
     - name: ejecutar test unitario
       run: mvn -B '-Dtest = es.urjc.code.daw.library.unitary.*Test' test
     - name: ejecutar api rest test
