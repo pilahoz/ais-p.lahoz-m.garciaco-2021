@@ -1,9 +1,13 @@
 name: cuarto workflow
 
-on:  
+on: 
+  push:
+    branches:
+      - master
+  
   pull_request:
     branches:
-      [release/0.1]
+      - master
 
 jobs:
   build:
