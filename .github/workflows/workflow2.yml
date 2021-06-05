@@ -3,11 +3,7 @@ name: segundo workflow
 on: 
   push:
     branches:
-      - master
-  
-  pull_request:
-    branches:
-      - master
+      [develop]
 
 jobs:
   build:
