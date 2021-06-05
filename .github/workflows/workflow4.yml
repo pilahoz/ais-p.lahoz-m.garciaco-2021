@@ -1,12 +1,13 @@
-name: cuarto workflow
+name: primer workflow
 
-on:  
+on: 
   push:
     branches:
       [release/0.1]
 
 jobs:
   build:
+
     runs-on: windows-latest
     steps:
     - uses: actions/checkout@v2
