@@ -35,23 +35,4 @@ jobs:
     - name: ejecutar selenium test
       run : mvn -B '-Dtest=es.urjc.code.daw.library.e2e.selenium.*Test' test
 
-  publish_in_dockerhub:
-    name: Publish in DockerHub
-    runs-on: windows-2019
-    needs: [build]
-    steps:
-      - name: Clone repository
-        uses: actions/checkout@v2
-      - name: Download jar from previous job
-        uses: actions/download-artifact@v2
-        with:
-          name: target
-      - name: Generate tag
-        run: echo ::set-output name=tag::$(date +'%Y%m%d.%H%M%S')
-        id: project
-      - name: Login to DockerHub
-        run: docker login -u "${{ secrets.DOCKERHUB_USERNAME }}" -p "${{ secrets.DOCKERHUB_TOKEN }}" 
-      - name: Build image
-        run: docker build -t ${{ secrets.DOCKERHUB_USERNAME }}/items:${{ steps.project.outputs.tag }} .
-      - name: Push image to DockerHub
-        run: docker push ${{ secrets.DOCKERHUB_USERNAME }}/items:${{ steps.project.outputs.tag }}
+  
