@@ -22,6 +22,6 @@ jobs:
     - name: Build native with Maven
       run: mvn -B package
     - name: ejecutar test unitario
-      run: src\test\java\es\urjc\code\daw\library\unitary\BookServiceUnitaryTest.java
+      run: mvd -B 'Dtest = es.urjc.code.daw.library.unitary.*Test' test
     - name: ejecutar api rest test
-      run: src\test\java\es\urjc\code\daw\library\e2e\rest\RestTest.java
+      run: mvn -B '-Dtest=es.urjc.code.daw.library.e2e.rest.*Test' test
