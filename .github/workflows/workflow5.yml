@@ -37,7 +37,7 @@ jobs:
         with:
           name: target
       - name: Generate tag
-        run: echo ::set-output name=tag::$(VERSION=$(mvn -q help:evaluate -Dexpression=project.version-DforceStdout))
+        run: echo ::set-output name=tag::$(mvn -q help:evaluate -Dexpression=project.version-DforceStdout)
         id: project
       - name: Login to DockerHub
         run: docker login -u "${{ secrets.DOCKERHUB_USERNAME }}" -p "${{ secrets.DOCKERHUB_TOKEN }}" 
@@ -49,7 +49,7 @@ jobs:
   publish_in_heroku_registry:
     name: Publish in Heroku Registry
     runs-on: ubuntu-latest
-    needs: [build]
+    needs: [publish_in_dockerhub]
     env:
       HEROKU_API_KEY: ${{ secrets.HEROKU_API_KEY }}
       HEROKU_APP: ${{ secrets.HEROKU_APP }}
@@ -61,11 +61,11 @@ jobs:
         with:
           name: target
       - name: Build Docker Image
-        run: docker build -t items .
+        run: docker build -t webapp .
       - name: Install Heroku CLI
         run: curl https://cli-assets.heroku.com/install-ubuntu.sh | sh
       - name: Change image name to point to Heroku registry
-        run: docker tag items registry.heroku.com/$HEROKU_APP/web
+        run: docker tag webapp registry.heroku.com/$HEROKU_APP/web
       - name: Login in Heroku container registry
         run: heroku container:login
       - name: Push image to Heroku Registry
@@ -85,6 +85,3 @@ jobs:
         run: heroku container:login
       - name: Deploy to Heroku
         run: heroku container:release web
-
-#String host = System.getProperty("host", "localhost")
-# mvn -Dhost=<HOST> test
