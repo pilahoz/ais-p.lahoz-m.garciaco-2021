@@ -84,12 +84,6 @@ jobs:
         run: heroku container:login
       - name: Deploy to Heroku
         run: heroku container:release web
-
-  deploy_to_heroku_smoke:
-    name: Deploy to Heroku Smoke Test
-    runs-on: ubuntu-latest
-    needs: [deploy_to_heroku]
-    steps:
       - name: Clone repository Smoke
         uses: actions/checkout@v2
       - name: ejecutar api rest test
