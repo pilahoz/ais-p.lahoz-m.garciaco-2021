@@ -1,5 +1,5 @@
 FROM openjdk:11-jre
 
-COPY target/*.jar webapp.jar
+COPY target/*.jar items.jar
 
-CMD ["java", "-jar", "/opt/webapp.jar"]
+CMD ["java", "-jar", "/opt/items.jar"]
