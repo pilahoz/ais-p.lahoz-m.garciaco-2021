@@ -1,9 +1,9 @@
-name: quinto workflow
+name: quinto workflow 1 #quitno
 
 on: 
   push:
     branches:
-      [hotfix/0.1.1]
+      [release/0.1]
 
 jobs:
   build:
