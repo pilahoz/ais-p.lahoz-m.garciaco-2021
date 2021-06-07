@@ -1,7 +1,7 @@
 name: quinto workflow #este primero
 
 on: 
-  pull_request:
+  push:
     branches:
       [release/0.1]
 
