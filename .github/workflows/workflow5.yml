@@ -90,7 +90,7 @@ jobs:
     runs-on: ubuntu-latest
     needs: [deploy_to_heroku]
     steps:
-      - name: Install Heroku CLI
+      - name: Clone repository Smoke
         uses: actions/checkout@v2
       - name: ejecutar api rest test
         run: mvn -B '-Dtest=es.urjc.code.daw.library.e2e.rest.*Test' test "-Dhost=https://git.heroku.com/ais-plahoz-mgarciaco-2021.git" test
