@@ -42,9 +42,9 @@ jobs:
       - name: Login to DockerHub
         run: docker login -u "${{ secrets.DOCKERHUB_USERNAME }}" -p "${{ secrets.DOCKERHUB_TOKEN }}" 
       - name: Build image
-        run: docker build -t ${{ secrets.DOCKERHUB_USERNAME }}/webapp:dev-${{ steps.project.outputs.tag }} .
+        run: docker build -t ${{ secrets.DOCKERHUB_USERNAME }}/webapp:${{ steps.project.outputs.tag }} .
       - name: Push image to DockerHub
-        run: docker push ${{ secrets.DOCKERHUB_USERNAME }}/webapp:dev-:${{ steps.project.outputs.tag }}
+        run: docker push ${{ secrets.DOCKERHUB_USERNAME }}/webapp:${{ steps.project.outputs.tag }}
   
   publish_in_heroku_registry:
     name: Publish in Heroku Registry
