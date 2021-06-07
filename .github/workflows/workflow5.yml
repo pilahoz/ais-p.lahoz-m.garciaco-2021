@@ -1,9 +1,10 @@
-name: quinto workflow 1 #quitno
+name: quinto workflow #este primero
 
 on: 
   push:
     branches:
       [release/0.1]
+
 
 jobs:
   build:
@@ -32,7 +33,7 @@ jobs:
       - name: Clone repository
         uses: actions/checkout@v2
       - name: Download jar from previous job
-        uses: actions/download-artifact@v1
+        uses: actions/download-artifact@v2
         with:
           name: target
       - name: Generate tag
