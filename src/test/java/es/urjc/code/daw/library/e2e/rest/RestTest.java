@@ -23,10 +23,11 @@ public class RestTest {
 
     @LocalServerPort
     int port;
-
+    String host;
     @BeforeEach
     public void setUp() {
         RestAssured.port = port;
+        this.host = System.getProperty("host", "localhost");
     }
 
     @Autowired

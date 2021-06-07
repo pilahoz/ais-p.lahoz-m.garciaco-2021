@@ -1,13 +1,9 @@
-name: cuarto workflow
+name: cuarto workflow #terminado
 
 on: 
   push:
     branches:
-      - master
-  
-  pull_request:
-    branches:
-      - master
+      [release/0.1]
 
 jobs:
   build:
